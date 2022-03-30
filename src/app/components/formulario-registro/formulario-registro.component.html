@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="row" style="margin-top: 1rem;">
+        <h3 style="text-align: center;">Crear producto</h3>
+
+        <form (ngSubmit)="crearProducto()"  id="crear">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="text" [(ngModel)]="producto.nombre" [ngModelOptions]="{standalone:true}"
+                        placeholder="Nombre del producto" class="form-control" required>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="text" [(ngModel)]="producto.caracteristicas" [ngModelOptions]="{standalone:true}"
+                        placeholder="Caracteristicas" class="form-control" required>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="date" [(ngModel)]="producto.fechaLanzamiento" [ngModelOptions]="{standalone:true}"
+                        placeholder="Fecha de lanzamiento" class="form-control" required>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="email" [(ngModel)]="producto.correoFabricante" [ngModelOptions]="{standalone:true}"
+                        placeholder="Correo del fabricante" class="form-control" required>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="text" [(ngModel)]="producto.paisFabricacion" [ngModelOptions]="{standalone:true}"
+                        placeholder="Pais de fabricacion" class="form-control" required>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="number" [(ngModel)]="producto.precio" [ngModelOptions]="{standalone:true}"
+                        placeholder="Precio" class="form-control" required>
+                </div>
+            </div>
+            <br>            
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="number" [(ngModel)]="producto.unidadesDisponibles" [ngModelOptions]="{standalone:true}" 
+                        placeholder="Unidades disponibles" class="form-control" required>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="number" [(ngModel)]="producto.unidadesVendidas" [ngModelOptions]="{standalone:true}"
+                        placeholder="Unidades vendidas" class="form-control" required>
+                </div>
+            </div>
+            <br>           
+
+
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <input class="btn btn-succes float-right" style="background-color:#008080 ;" type="submit" value="Crear">
+                </div>
+                <div class="col-md-6">
+                    <input class="btn btn-succes float-right" style="background-color:red ;" type="submit" value="Cerrar">
+                </div>
+            </div>
+        </form>
+
+
+
+    </div>
+
+</div>
