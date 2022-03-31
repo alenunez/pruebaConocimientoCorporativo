@@ -15,6 +15,6 @@ export class ProductServiceService {
         'Content-type': 'application/json'
       })
     }
-    return this.http.post<any>("http://localhost:8080/producto/guardar", producto, httpOptions);
+    return this.http.post<any>("localhost:8080/producto/guardar", producto, httpOptions);
   }
 }
