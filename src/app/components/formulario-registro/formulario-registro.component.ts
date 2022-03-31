@@ -8,8 +8,8 @@ import { ProductServiceService } from 'src/app/services/product-service.service'
   styleUrls: ['./formulario-registro.component.css']
 })
 export class FormularioRegistroComponent implements OnInit {
-  //producto:any ={}
-  producto :Producto=new Producto
+  producto:any ={}
+
 
 
   constructor(private api:ProductServiceService) { }
@@ -28,11 +28,15 @@ export class FormularioRegistroComponent implements OnInit {
   confirmar(resultado:any){
     if(resultado){
       alert("Usuario creado exitosamente.");
+      this.producto={};
     }
     else{
       alert("Error al crear el usuario");
   
     }
+  }
+  cerrar(){
+    location.href="verProducto"
   }
 
 }
