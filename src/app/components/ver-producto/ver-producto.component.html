@@ -2,12 +2,12 @@
     <div class="row" style="margin-top: 1rem;">
         <h3 style="text-align: center;">ver producto</h3>
 
-        <form (ngSubmit)="actualizarProducto()" id="actualizar">
+        <form (ngSubmit)="actualizarProducto()" id="actualizar"  >
 
-            <div class="row">
+            <div class="row" class="data-user" >
                 <div class="col-md-12">
                     <input type="text" value="{{producto.nombre}}" [(ngModel)]="producto.nombre" [ngModelOptions]="{standalone:true}"
-                         class="form-control" required>
+                         class="form-control" required >
                 </div>
             </div>
             <br>
@@ -69,6 +69,7 @@
                 </div>
             </div>
             <br>  
+            <img *ngIf="producto.imagen"  src="{{imagen}}" alt="">
 
             <br>
             <div class="row">

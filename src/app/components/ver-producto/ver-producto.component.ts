@@ -8,18 +8,41 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ver-producto.component.css']
 })
 export class VerProductoComponent implements OnInit {
-  producto: Producto=new Producto()
+ public  producto: Producto=new Producto()
   prod:any;
+  imagen:any;
 
   constructor( private api: ProductServiceService) { }
 
   ngOnInit(): void {
+   /**  this.producto.nombre="";
+    this.producto.caracteristicas="";
+    this.producto.fechaLanzamiento=new Date();
+    this.producto.nombre="";
+    this.producto.correoFabricante="";
+    this.producto.paisFabricacion="";
+    this.producto.precio=0;
+    this.producto.unidadesDisponibles=0;
+    this.producto.unidadesVendidas=0;
+    this.producto.imagen="";*/
+
+
+
+
+
+
+
     this.verProducto();
+    
   }
   verProducto(){
     this.api.getProducto().subscribe(data=>{
       this.prod=data;
       this.producto=this.prod;
+      this.imagen=this.producto.imagen;
+      if(!this.producto.imagen){
+        this.producto.imagen=""
+      }
     })
   }
 

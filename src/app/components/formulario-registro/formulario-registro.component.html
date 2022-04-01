@@ -2,7 +2,7 @@
     <div class="row" style="margin-top: 1rem;">
         <h3 style="text-align: center;">Crear producto</h3>
 
-        <form (ngSubmit)="crearProducto()" id="crear">
+        <form (ngSubmit)="crearProducto()" id="crear" enctype="multipart/form-data">
 
             <div class="row">
                 <div class="col-md-12">
@@ -62,10 +62,11 @@
             </div>
             <br>  
 
+
             <div class="row">
                 <div class="col-md-12">
                     <input type="text" [(ngModel)]="producto.imagen" [ngModelOptions]="{standalone:true}"
-                        placeholder="Imagen" class="form-control" required>
+                        placeholder="Coloca la url de la imagen desde la nube" id="imagen" class="form-control" required>
                 </div>
             </div>
             <br>  

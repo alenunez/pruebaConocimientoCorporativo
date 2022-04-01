@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,8 @@ import { HomeComponent } from './components/home/home.component';
 import { VerProductoComponent } from './components/ver-producto/ver-producto.component';
 import { ListaProductosComponent } from './components/lista-productos/lista-productos.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { BuscarNombrePipe } from './pipes/buscar-nombre.pipe';
+import { BuscarPaisPipe } from './pipes/buscar-pais.pipe';
 
 
 
@@ -27,6 +30,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     HomeComponent,
     VerProductoComponent,
     ListaProductosComponent,
+    BuscarNombrePipe,
+    BuscarPaisPipe,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
      FormsModule,
      HttpClientModule,
      NgxPaginationModule,
-     MatPaginatorModule,
+     MatRadioModule
+     
      
   ],
   providers: [],

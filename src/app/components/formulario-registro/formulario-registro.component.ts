@@ -19,7 +19,7 @@ export class FormularioRegistroComponent implements OnInit {
   crearProducto(){
     let formulario:any = document.getElementById("crear");
     let formularioValido:boolean = formulario.reportValidity();
-    if( formularioValido){
+    if( formularioValido ){
       this.api.createProducto(this.producto).subscribe(
         data => this.confirmar(data)
       )

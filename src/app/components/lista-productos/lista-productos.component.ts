@@ -15,6 +15,15 @@ import { NgxPaginationModule } from 'ngx-pagination'; // At the top of your modu
 export class ListaProductosComponent implements OnInit {
   productos: any = [];
   producto: Producto = new Producto();
+  filterPost='';
+  filterPostPais='';
+  mostrarOp:boolean=false;
+  mostrarBuscadorNombre:boolean=false;
+  mostrarBuscadorPais:boolean=false;
+  buscador:any;
+
+
+
   public page :number=0;
 
   constructor(private api: ProductServiceService) { }
@@ -26,7 +35,6 @@ export class ListaProductosComponent implements OnInit {
   getProductos() {
     this.api.getProductos().subscribe(data => {
       this.productos = data;
-      console.log(this.productos);
     })
   }
 
@@ -43,6 +51,16 @@ export class ListaProductosComponent implements OnInit {
     alert("producto eliminado exitosamente.");
     location.href = "/listaProductos"
   }
+  mostrar(){
+    this.mostrarOp=true;
+    console.log(this.mostrarOp)
+  }
+  mostrarPais(){
+    this.mostrarBuscadorNombre=false;
+    this.mostrarBuscadorPais=true;
+  }
+  onChange(){}
+
 
 
 
