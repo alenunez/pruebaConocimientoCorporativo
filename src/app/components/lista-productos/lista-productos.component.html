@@ -4,18 +4,34 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
-                <th scope="col">Correo</th>
-                <th scope="col">Rol</th>
+                <th scope="col">caracteristicas</th>
+                <th scope="col">Fecha de lanzamiento</th>
+                <th scope="col">Correo del fabricante</th>
+                <th scope="col">Pais de fabricación</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Unidades disponibles</th>
+                <th scope="col">Unidades vendidas</th>
                 <th></th>
-
+                <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let prod of productos | paginate: { itemsPerPage: 5, currentPage:page} ">
+                <td>{{prod.id}}</td>
+                <td>{{prod.nombre}}</td>
+                <td>{{prod.caracteristicas}}</td>
+                <td>{{prod.fechaLanzamiento}}</td>
+                <td>{{prod.correoFabricante}}</td>
+                <td>{{prod.paisFabricacion}}</td>
+                <td>{{prod.precio}}</td>
+                <td>{{prod.unidadesDisponibles}}</td>
+                <td>{{prod.unidadesVendidas}}</td>
+                <td> <button type="button" class="btn btn-primary" style="background-color: #008080;"
+                        (click)="verProducto(prod)">Ver producto</button>
+                <td> <button type="button" class="btn btn-primary" style="background-color: red"
+                        (click)="eliminar(prod)">Eliminar producto</button>
 
-                <td> <button type="button" class="btn btn-primary" style="background-color: #008080;">Ver
-                        usuario</button>
+
 
 
             </tr>
@@ -23,4 +39,8 @@
 
         </tbody>
     </table>
+    <pagination-controls (pageChange)="page = $event" previousLabel="Previous" nextLabel="Next"></pagination-controls>
+
+
+
 </div>

@@ -1,74 +1,84 @@
 <div class="container">
     <div class="row" style="margin-top: 1rem;">
-        <h3 style="text-align: center;">Ver producto</h3>
+        <h3 style="text-align: center;">ver producto</h3>
 
-        <form  id="crear">
+        <form (ngSubmit)="actualizarProducto()" id="actualizar">
 
             <div class="row">
                 <div class="col-md-12">
-                    <input type="text"
-                        placeholder="Nombre del producto" class="form-control" required>
+                    <input type="text" value="{{producto.nombre}}" [(ngModel)]="producto.nombre" [ngModelOptions]="{standalone:true}"
+                         class="form-control" required>
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-md-12">
-                    <input type="text"
-                        placeholder="Caracteristicas" class="form-control" required>
+                    <input type="text" value="{{producto.caracteristicas}}" [(ngModel)]="producto.caracteristicas" [ngModelOptions]="{standalone:true}"
+                         class="form-control" required>
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-md-12">
-                    <input type="date" 
-                        placeholder="Fecha de lanzamiento" class="form-control" required>
+                    <input type="date" value="{{producto.fechaLanzamiento}}" [(ngModel)]="producto.fechaLanzamiento" [ngModelOptions]="{standalone:true}"
+                         class="form-control" required>
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-md-12">
-                    <input type="email" 
-                        placeholder="Correo del fabricante" class="form-control" required>
+                    <input type="email" value="{{producto.correoFabricante}}" [(ngModel)]="producto.correoFabricante" [ngModelOptions]="{standalone:true}"
+                         class="form-control" required>
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-md-12">
-                    <input type="text" 
-                        placeholder="Pais de fabricacion" class="form-control" required>
+                    <input type="text" value="{{producto.paisFabricacion}" [(ngModel)]="producto.paisFabricacion" [ngModelOptions]="{standalone:true}"
+                         class="form-control" required>
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-md-12">
-                    <input type="number" 
-                        placeholder="Precio" class="form-control" required>
+                    <input type="number" value="{{producto.precio}}" [(ngModel)]="producto.precio" [ngModelOptions]="{standalone:true}"
+                         class="form-control" required>
                 </div>
             </div>
             <br>            
             <div class="row">
                 <div class="col-md-12">
-                    <input type="number" 
-                        placeholder="Unidades disponibles" class="form-control" required>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                    <input type="number" 
-                        placeholder="Unidades vendidas" class="form-control" required>
+                    <input type="number" value="{{producto.unidadesDisponibles}}" [(ngModel)]="producto.unidadesDisponibles" [ngModelOptions]="{standalone:true}"
+                         class="form-control" required>
                 </div>
             </div>
             <br>           
 
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="number" value="{{producto.unidadesVendidas}}" [(ngModel)]="producto.unidadesVendidas" [ngModelOptions]="{standalone:true}"
+                         class="form-control" required>
+                </div>
+            </div>
+            <br>  
+
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="text" [(ngModel)]="producto.imagen" [ngModelOptions]="{standalone:true}"
+                        placeholder="Imagen" class="form-control" required>
+                </div>
+            </div>
+            <br>  
 
             <br>
             <div class="row">
                 <div class="col-md-6">
                     <input class="btn btn-succes float-right" style="background-color:#008080 ;" type="submit" value="Crear">
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-md-6">
-                    <input class="btn btn-succes float-right" style="background-color:red ;" type="submit" value="Cerrar">
+                    <button class="btn btn-succes float-right" style="background-color:red;" (click)="cerrar()">Cerrar </button>
                 </div>
             </div>
         </form>
