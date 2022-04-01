@@ -1,26 +1,54 @@
 <div class="container">
 
+    <select class="form-select" name="miselect" [(ngModel)]="seleccionado" (change)="filtrar($any($event.target).value)">Seleccionar
+
+        <option selected="true" disabled="disabled">seleccione el filtro</option>
+        <option value=1>Buscar por Nombre</option>
+        <option value=2>Buscar por pais</option>
+
+    </select>
+
+    <select class="form-select" name="miselect2" [(ngModel)]="seleccionado2" (change)="ordenar($any($event.target).value)">Seleccionar
+
+        <option selected="true" disabled="disabled">seleccione el ordenamiento</option>
+        <option value=1>Ordenar por precio</option>
+        <option value=2>Ordenar por unidades disponibles</option>
+
+    </select>
+
+
+    <button type="button" *ngIf="botonNombre" class="btn btn-primary" style="background-color:#008080 ;"
+        (click)="mostrarBuscadorNomb()">Nombre</button>
+    <button type="button" *ngIf="botonPais" class="btn btn-primary" style="background-color:#008080 ;"
+        (click)="mostrarBuscadorPa()">Pais</button>
 
 
 
-    <input type="text"  class="form-control" placeholder="Buscar producto" [(ngModel)]="filterPost" name="filterPost">
-    <input type="text"  class="form-control" placeholder="Buscar por pais" [(ngModel)]="filterPostPais" name="filterPostPais">
+    <input type="text" *ngIf="mostrarBuscadorNombre" class="form-control" placeholder="Buscar producto"
+        [(ngModel)]="filterPost" name="filterPost">
+    <input type="text" *ngIf="mostrarBuscadorPais" class="form-control" placeholder="Buscar por pais"
+        [(ngModel)]="filterPostPais" name="filterPostPais">
 
     <div class="row">
-        <div class="col-2" *ngFor="let prod of productos | paginate: { itemsPerPage: 2, currentPage:page} | buscarNombre:filterPost | buscarPais:filterPostPais ">
-            <div class="card" style="width:200px, height,200px;"  >
+        <div class="col-2"
+            *ngFor="let prod of productos | paginate: { itemsPerPage: 5, currentPage:page} | buscarNombre:filterPost | buscarPais:filterPostPais ">
+            <div class="card" style="width:200px, height,200px;">
                 <img class="card-img-top" src="{{prod.imagen}}" alt="Card image">
                 <div class="card-body">
                     <h4 class="card-title">{{prod.nombre}}</h4>
                     <p class="card-text">{{prod.caracteristicas}}.</p>
+                    <p class="card-text">Precio: {{prod.precio}}.</p>
+                    <p class="card-text">Unidades disponibles: {{prod.unidadesDisponibles}}.</p>
+
+
                     <button type="button" class="btn btn-primary" style="background-color: #008080;"
                         (click)="verProducto(prod)">Ver producto</button>
                     <button type="button" class="btn btn-primary" style="background-color: red"
-                        (click)="eliminar(prod)">Eliminar producto</button>
+                        (click)="eliminar(prod)">Eliminar</button>
                 </div>
             </div>
         </div>
-        <pagination-controls (pageChange)="page = $event" previousLabel="Previous" nextLabel="Next">
+        <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="siguiente">
         </pagination-controls>
         <div class="col-3"></div>
 

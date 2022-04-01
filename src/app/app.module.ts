@@ -16,6 +16,8 @@ import { ListaProductosComponent } from './components/lista-productos/lista-prod
 import {NgxPaginationModule} from 'ngx-pagination';
 import { BuscarNombrePipe } from './pipes/buscar-nombre.pipe';
 import { BuscarPaisPipe } from './pipes/buscar-pais.pipe';
+import {MatSortModule} from '@angular/material/sort';
+import { CrearProductoComponent } from './components/crear-producto/crear-producto.component';
 
 
 
@@ -32,6 +34,7 @@ import { BuscarPaisPipe } from './pipes/buscar-pais.pipe';
     ListaProductosComponent,
     BuscarNombrePipe,
     BuscarPaisPipe,
+    CrearProductoComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { BuscarPaisPipe } from './pipes/buscar-pais.pipe';
      FormsModule,
      HttpClientModule,
      NgxPaginationModule,
-     MatRadioModule
+     MatRadioModule,
+     MatSortModule
      
      
   ],

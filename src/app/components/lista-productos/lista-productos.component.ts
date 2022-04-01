@@ -1,9 +1,6 @@
 import { Producto } from './../../models/producto';
 import { Component, OnInit, NgModule } from '@angular/core';
 import { ProductServiceService } from 'src/app/services/product-service.service';
-import { PageEvent } from '@angular/material/paginator';
-import { NgxPaginationModule } from 'ngx-pagination'; // At the top of your module
-
 
 @Component({
   selector: 'app-lista-productos',
@@ -17,10 +14,18 @@ export class ListaProductosComponent implements OnInit {
   producto: Producto = new Producto();
   filterPost='';
   filterPostPais='';
-  mostrarOp:boolean=false;
-  mostrarBuscadorNombre:boolean=false;
+  botonNombre:boolean=false;
+  botonPais:boolean=false;
+    mostrarBuscadorNombre:boolean=false;
   mostrarBuscadorPais:boolean=false;
-  buscador:any;
+  mostrar:boolean=true;
+  reverse = true;
+  seleccionado:any  
+  seleccionado2:any  
+
+
+
+
 
 
 
@@ -51,16 +56,89 @@ export class ListaProductosComponent implements OnInit {
     alert("producto eliminado exitosamente.");
     location.href = "/listaProductos"
   }
-  mostrar(){
-    this.mostrarOp=true;
-    console.log(this.mostrarOp)
-  }
+
   mostrarPais(){
     this.mostrarBuscadorNombre=false;
     this.mostrarBuscadorPais=true;
   }
-  onChange(){}
+  mostrarFiltros():void{
+    alert("Funcional");
+    this.botonNombre=true;
+    this.botonPais=true;
+    this.mostrar=false;
 
+  }
+  mostrarBuscadorNomb():void{
+    this.mostrarBuscadorNombre=true;
+    this.mostrarBuscadorPais=false;
+  }
+
+  mostrarBuscadorPa(){
+    this.mostrarBuscadorNombre=false;
+    this.mostrarBuscadorPais=true;
+  }
+
+  sortData() {
+    if(this.reverse) {
+      let newArray = this.productos.sort((a:any,b:any)=> b.id - a.id)
+      this.reverse = !this.reverse;
+    }
+    else if(!this.reverse){
+      let newArray = this.productos.sort((a:any,b:any)=> a.id - b.id)
+      this.reverse = !this.reverse
+    }
+  }
+
+  sortDataPrice() {
+    if(this.reverse) {
+      let newArray2 = this.productos.sort((a:any,b:any)=> b.precio - a.precio)
+      this.productos= newArray2
+    }
+    else if(!this.reverse){
+      let newArray2 = this.productos.sort((a:any,b:any)=> a.precio - b.precio)
+      this.productos= newArray2;
+    }
+    this.reverse = !this.reverse;
+    console.log(this.productos)
+  }
+
+  sortDataunidadesDisponibles() {
+    if(this.reverse) {
+      let newArray3 = this.productos.sort((a:any,b:any)=> b.unidadesDisponibles- a.unidadesDisponibles)
+      this.productos= newArray3
+    }
+    else if(!this.reverse){
+      let newArray3 = this.productos.sort((a:any,b:any)=> a.unidadesDisponibles - b.unidadesDisponibles)
+      this.productos= newArray3;
+    }
+    this.reverse = !this.reverse;
+    console.log(this.productos)
+  }
+
+  filtrar(id:any):void{
+    console.log('id->',id)
+    if(id==1){
+      this.mostrarBuscadorNomb()
+    }
+    else if(id==2){
+      this.mostrarBuscadorPa()
+
+    }
+  }
+
+  ordenar(id:any):void{
+    console.log('id->',id)
+    if(id==1){
+      this.sortDataPrice()
+    }
+    else if(id==2){
+      this.sortDataunidadesDisponibles()
+
+    }
+  }
+  
+
+  
 
 
 
