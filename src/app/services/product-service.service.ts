@@ -15,17 +15,17 @@ export class ProductServiceService {
         'Content-type': 'application/json'
       })
     }
-    return this.http.post<any>("http://localhost:8080/producto/guardar", usuario, httpOptions);
+    return this.http.post<any>("https://conocimientoinformatico.herokuapp.com/producto/guardar", usuario, httpOptions);
   }
   getProductos() {
-    return this.http.get(`http://localhost:8080/producto/buscar`)
+    return this.http.get("https://conocimientoinformatico.herokuapp.com/producto/buscar")
   }
 
   getProducto() {
-    return this.http.get(`http://localhost:8080/producto/buscar/` + sessionStorage.getItem("idProducto"))
+    return this.http.get("https://conocimientoinformatico.herokuapp.com/producto/buscar/" + sessionStorage.getItem("idProducto"))
   }
 
   eliminarProducto(): Observable<{}> {
-    return this.http.delete<{}>(`http://localhost:8080/producto/eliminar/` + sessionStorage.getItem("idProducto"))
+    return this.http.delete<{}>("https://conocimientoinformatico.herokuapp.com/producto/eliminar/" + sessionStorage.getItem("idProducto"))
   }
 }

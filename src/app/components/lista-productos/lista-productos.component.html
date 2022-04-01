@@ -1,5 +1,6 @@
 <div class="container">
-
+    <h1 style="text-align: center;">Lista de productos</h1>
+    <h3>Seleccionar un filtro</h3>
     <select class="form-select" name="miselect" [(ngModel)]="seleccionado" (change)="filtrar($any($event.target).value)">Seleccionar
 
         <option selected="true" disabled="disabled">seleccione el filtro</option>
@@ -8,13 +9,6 @@
 
     </select>
 
-    <select class="form-select" name="miselect2" [(ngModel)]="seleccionado2" (change)="ordenar($any($event.target).value)">Seleccionar
-
-        <option selected="true" disabled="disabled">seleccione el ordenamiento</option>
-        <option value=1>Ordenar por precio</option>
-        <option value=2>Ordenar por unidades disponibles</option>
-
-    </select>
 
 
     <button type="button" *ngIf="botonNombre" class="btn btn-primary" style="background-color:#008080 ;"
@@ -28,12 +22,22 @@
         [(ngModel)]="filterPost" name="filterPost">
     <input type="text" *ngIf="mostrarBuscadorPais" class="form-control" placeholder="Buscar por pais"
         [(ngModel)]="filterPostPais" name="filterPostPais">
+<br>
+        <h3>Ordenar por</h3>
+        <select class="form-select" name="miselect2" [(ngModel)]="seleccionado2" (change)="ordenar($any($event.target).value)">Seleccionar
+    
+            <option selected="true" disabled="disabled">seleccione el ordenamiento</option>
+            <option value=1>Ordenar por precio</option>
+            <option value=2>Ordenar por unidades disponibles</option>
+    
+        </select>
+        <br>
 
     <div class="row">
         <div class="col-2"
             *ngFor="let prod of productos | paginate: { itemsPerPage: 5, currentPage:page} | buscarNombre:filterPost | buscarPais:filterPostPais ">
-            <div class="card" style="width:200px, height,200px;">
-                <img class="card-img-top" src="{{prod.imagen}}" alt="Card image">
+            <div class="card" style="width:180px; height:450px;">
+                <img class="card-img-top" src="{{prod.imagen}}" alt="Card image" style="width: 150px; height: 150px;">
                 <div class="card-body">
                     <h4 class="card-title">{{prod.nombre}}</h4>
                     <p class="card-text">{{prod.caracteristicas}}.</p>
