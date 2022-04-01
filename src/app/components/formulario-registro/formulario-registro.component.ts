@@ -27,7 +27,7 @@ export class FormularioRegistroComponent implements OnInit {
   }
   confirmar(resultado:any){
     if(resultado){
-      alert("Usuario creado exitosamente.");
+      alert("Producto creado exitosamente.");
       this.producto={};
     }
     else{
