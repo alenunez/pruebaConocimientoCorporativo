@@ -46,7 +46,9 @@ export class VerProductoComponent implements OnInit {
     })
   }
 
-  cerrar(){}
+  cerrar(){
+    location.href="listaProductos"
+  }
   actualizarProducto(){}
 
 }
